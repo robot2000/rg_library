@@ -4,7 +4,7 @@ class Author
 
   def initialize(name, bio)
   	@name = name
-  	@ bio= bio
+  	@bio= bio
   end
 
   def to_s

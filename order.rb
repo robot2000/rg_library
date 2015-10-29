@@ -3,7 +3,7 @@ class Order
   attr_accessor :reader
   attr_accessor :date
 
-  def initialize (book, reader, date)
+  def initialize (book, reader, date = Time.now)
     @book = book
     @reader = reader
     @date = date
