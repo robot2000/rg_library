@@ -60,11 +60,11 @@ class Library
   end
 
   def save_to_file(file)
-    File.open(file, 'w') { |f| f.write self.to_yaml }
+    File.open('library.yaml', 'w') { |f| f.write self.to_yaml }
   end
 
   def load_from_file(file)
-    load = YAML.load_file(file)
+    load = YAML.load_file('library.yaml')
     @books   = load.books
     @authors = load.authors
     @readers = load.readers
@@ -90,7 +90,7 @@ reader5 = Reader.new('Ivaris', 'ivaris@mail.com', 'Oslo', 'North str', '1236')
 suvorov = Author.new('Viktor Suvorov', 'born to 1947 in USSR')
 marks = Author.new('Karl Marks', 'born to 1818 in Germany')
 shevchenko = Author.new('Taras Shevchenko', 'born to 1814 in Ukraine')
-matsumoto = Author.new('', 'born to 1965 in Japan')
+matsumoto = Author.new('Yokihiro Matsumoto', 'born to 1965 in Japan')
 
 book1 = Book.new('Icebracker', suvorov)
 book2 = Book.new('Das Kapital', marks)
@@ -144,3 +144,5 @@ library.add_order(order10)
 library.top_readers
 library.top_books
 library.how_orders_of_three_most_popular_books
+
+library.save_to_file('library.yaml')
